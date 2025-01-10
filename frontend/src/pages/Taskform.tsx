@@ -1,25 +1,36 @@
 /** @jsxImportSource @emotion/react */
+// Importa a biblioteca Emotion para estilização com CSS-in-JS
 import React, { useState } from 'react';
-import { formStyle, inputStyle, buttonCriarTarefaStyle } from './style';
+// Importa React e o hook useState
 
+import { formStyle, inputStyle, buttonCriarTarefaStyle } from './style';
+// Importa os estilos CSS-in-JS para os componentes
+
+// Define a interface TaskFormProps que descreve as propriedades esperadas pelo componente TaskForm
 interface TaskFormProps {
-  onSubmit: (title: string, description: string, user: string) => void;
-  token: string;
+  onSubmit: (title: string, description: string, user: string) => void; // Função para submeter o formulário
+  token: string; // Token de autenticação (não utilizado no componente, mas pode ser necessário para requisições futuras)
 }
 
+// Define o componente funcional TaskForm
 const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, token }) => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [user, setUser] = useState('');
+  // Define o estado title para armazenar o título da tarefa
+  const [title, setTitle] = useState<string>('');
+  // Define o estado description para armazenar a descrição da tarefa
+  const [description, setDescription] = useState<string>('');
+  // Define o estado user para armazenar o nome do usuário associado à tarefa
+  const [user, setUser] = useState<string>('');
 
+  // Função para lidar com o envio do formulário
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSubmit(title, description, user);
-    setTitle('');
-    setDescription('');
-    setUser('');
+    e.preventDefault(); // Previne o comportamento padrão de recarregar a página
+    onSubmit(title, description, user); // Chama a função onSubmit passada como prop
+    setTitle(''); // Reseta o título da tarefa
+    setDescription(''); // Reseta a descrição da tarefa
+    setUser(''); // Reseta o nome do usuário
   };
 
+  // Renderiza o componente
   return (
     <form onSubmit={handleSubmit} css={formStyle}>
       <input
@@ -52,3 +63,4 @@ const TaskForm: React.FC<TaskFormProps> = ({ onSubmit, token }) => {
 };
 
 export default TaskForm;
+// Exporta o componente TaskForm como padrão

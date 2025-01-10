@@ -1,21 +1,32 @@
 /** @jsxImportSource @emotion/react */
+// Importa a biblioteca Emotion para estilização com CSS-in-JS
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { containerStyle, formStyle, inputStyle, buttonStyle, titleStyle } from './style';
+// Importa React e os hooks useState, ChangeEvent e FormEvent
 
+import { containerStyle, formStyle, inputStyle, buttonStyle, titleStyle } from './style';
+// Importa os estilos CSS-in-JS para os componentes
+
+// Define a interface CadastroProps que descreve as propriedades esperadas pelo componente Cadastro
 interface CadastroProps {
-  onRegister: (fullName: string, email: string, password: string) => void;
+  onRegister: (fullName: string, email: string, password: string) => void; // Função para lidar com o registro
 }
 
+// Define o componente funcional Cadastro
 const Cadastro: React.FC<CadastroProps> = ({ onRegister }) => {
+  // Define o estado fullName para armazenar o nome completo do usuário
   const [fullName, setFullName] = useState<string>('');
+  // Define o estado email para armazenar o email do usuário
   const [email, setEmail] = useState<string>('');
+  // Define o estado password para armazenar a senha do usuário
   const [password, setPassword] = useState<string>('');
 
+  // Função para lidar com o envio do formulário
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    onRegister(fullName, email, password);
+    e.preventDefault(); // Previne o comportamento padrão de recarregar a página
+    onRegister(fullName, email, password); // Chama a função onRegister passada como prop
   };
 
+  // Renderiza o componente
   return (
     <div css={containerStyle}>
       <form onSubmit={handleSubmit} css={formStyle}>
@@ -51,3 +62,4 @@ const Cadastro: React.FC<CadastroProps> = ({ onRegister }) => {
 };
 
 export default Cadastro;
+// Exporta o componente Cadastro como padrão
