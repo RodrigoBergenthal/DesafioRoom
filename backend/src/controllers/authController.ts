@@ -1,9 +1,19 @@
 import { Request, Response, NextFunction } from 'express';
-import { AppDataSource } from '../ormconfig';
-import { User } from '../entities/User';
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+// Importa os tipos Request, Response e NextFunction do Express
 
+import { AppDataSource } from '../ormconfig';
+// Importa a conexão com o banco de dados
+
+import { User } from '../entities/User';
+// Importa a entidade User
+
+import bcrypt from 'bcryptjs';
+// Importa a biblioteca bcryptjs para hashing de senhas
+
+import jwt from 'jsonwebtoken';
+// Importa a biblioteca jsonwebtoken para manipulação de tokens JWT
+
+// Função para registrar um novo usuário
 export const register = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { fullName, email, password } = req.body;
@@ -26,6 +36,7 @@ export const register = async (req: Request, res: Response, next: NextFunction):
   }
 };
 
+// Função para autenticar um usuário
 export const login = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { email, password } = req.body;
@@ -50,3 +61,6 @@ export const login = async (req: Request, res: Response, next: NextFunction): Pr
     next(error);
   }
 };
+
+// Finalidade da Seção: Esta seção foi criada para definir os controladores de autenticação, incluindo as funções para registrar e autenticar usuários. 
+// A função register cria um novo usuário com uma senha hash e a função login autentica um usuário e retorna um token JWT.

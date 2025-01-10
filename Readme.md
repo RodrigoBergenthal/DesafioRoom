@@ -2,7 +2,7 @@
 
 ## Introdução
 
-Este é um projeto de exemplo para um sistema de autenticação e gerenciamento de tarefas. O backend é construído com Node.js, Express e TypeORM, enquanto o frontend é construído com React e Axios.
+Este é um projeto de exemplo para um sistema de autenticação e gerenciamento de tarefas. O backend é construído com Node.js, Express e TypeORM, enquanto o frontend é construído com React e Axios. O frontend foi criado usando o Vite, uma ferramenta de build rápida e moderna.
 
 ## Instalação
 

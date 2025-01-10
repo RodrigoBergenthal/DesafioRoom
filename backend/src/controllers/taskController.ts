@@ -1,8 +1,16 @@
 import { Request, Response, NextFunction } from 'express';
-import { AppDataSource } from '../ormconfig';
-import { Task } from '../entities/Task';
-import { User } from '../entities/User';
+// Importa os tipos Request, Response e NextFunction do Express
 
+import { AppDataSource } from '../ormconfig';
+// Importa a conexão com o banco de dados
+
+import { Task } from '../entities/Task';
+// Importa a entidade Task
+
+import { User } from '../entities/User';
+// Importa a entidade User
+
+// Função para criar uma nova tarefa
 export const createTask = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { title, description, completed } = req.body;
@@ -26,6 +34,7 @@ export const createTask = async (req: Request, res: Response, next: NextFunction
   }
 };
 
+// Função para obter as tarefas de um usuário
 export const getTasks = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const userId = req.userId;
@@ -39,6 +48,7 @@ export const getTasks = async (req: Request, res: Response, next: NextFunction):
   }
 };
 
+// Função para atualizar uma tarefa existente
 export const updateTask = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const id = Number(req.params.id);
@@ -63,6 +73,7 @@ export const updateTask = async (req: Request, res: Response, next: NextFunction
   }
 };
 
+// Função para deletar uma tarefa
 export const deleteTask = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const { id } = req.params;
@@ -81,3 +92,7 @@ export const deleteTask = async (req: Request, res: Response, next: NextFunction
     next(error);
   }
 };
+
+// Finalidade da Seção: Esta seção foi criada para definir os controladores de tarefas, incluindo as funções para criar, obter, atualizar e deletar tarefas. 
+// A função createTask cria uma nova tarefa associada a um usuário, a função getTasks obtém as tarefas de um usuário, 
+// a função updateTask atualiza uma tarefa existente e a função deleteTask deleta uma tarefa.
