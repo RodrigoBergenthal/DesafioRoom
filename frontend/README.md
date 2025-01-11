@@ -1,50 +1,74 @@
-# React + TypeScript + Vite
+# Frontend do Desafio Room
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introdução
 
-Currently, two official plugins are available:
+Este é o frontend do projeto Desafio Room, construído com React, TypeScript, Emotion para estilização e Axios para requisições HTTP. O projeto foi configurado usando Vite para um desenvolvimento rápido e moderno.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Instalação
 
-## Expanding the ESLint configuration
+### Pré-requisitos
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Node.js (versão 14 ou superior)
 
-- Configure the top-level `parserOptions` property like this:
+### Passos para Instalação
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. Clone o repositório e navegue até a pasta do frontend:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+```sh
+git clone https://github.com/seu-usuario/desafio-room.git
+cd desafio-room/frontend
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+2. Instale as dependências do frontend:
+npm install
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+
+3. Instale o React Router:
+
+npm install react-router-dom
+
+4. Executando o Frontend
+Inicie o servidor de desenvolvimento
+
+frontend/
+├── src/
+│   ├── components/
+│   │   ├── Login/
+│   │   │   ├── Login.tsx
+│   │   │   └── style.ts
+│   │   ├── Cadastro/
+│   │   │   ├── Cadastro.tsx
+│   │   │   └── style.ts
+│   │   ├── TaskForm/
+│   │   │   ├── TaskForm.tsx
+│   │   │   └── style.ts
+│   │   ├── TaskList/
+│   │   │   ├── TaskList.tsx
+│   │   │   └── style.ts
+│   │   ├── SecaoPrincipal/
+│   │   │   ├── SecaoPrincipal.tsx
+│   │   │   └── style.ts
+│   │   ├── BarraLateral/
+│   │   │   ├── BarraLateral.tsx
+│   │   │   └── style.ts
+│   │   ├── Filtro/
+│   │   │   ├── Filtro.tsx
+│   │   │   └── style.ts
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   ├── containers/
+│   │   ├── BarraLateral/
+│   │   │   ├── BarraLateral.tsx
+│   │   │   └── style.ts
+│   │   ├── SecaoPrincipal/
+│   │   │   ├── SecaoPrincipal.tsx
+│   │   │   └── style.ts
+│   ├── services/
+│   │   └── api.ts
+│   ├── styles/
+│   │   └── GlobalStyle.ts
+│   ├── pages/
+│   │   ├── TaskPage.tsx
+│   ├── public/
+│   ├── package.json
+│   └── tsconfig.json
+└── README.md
